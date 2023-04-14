@@ -6,7 +6,7 @@
 
     if (isset($_POST['btn-del'])) {
         if (isset($_COOKIE['productID'])) {
-            // mysqli_query($conn, "DELETE FROM `products` WHERE id = '".$_COOKIE['productID']."'");
+            mysqli_query($conn, "DELETE FROM `products` WHERE id = '".$_COOKIE['productID']."'");
             mysqli_query($conn, "INSERT INTO `logs`(`id`, `action_name`, `date`, `username`) 
                                 VALUES ('0','delete product having id - {$_COOKIE['productID']}','$date','huyen')");
         }

@@ -50,7 +50,7 @@ section {
     width: fit-content;
     height: 4px;
     border-radius: 15px;
-    background-color: rgba(250, 168, 91, 0.11);
+    background-color: var(--color-blue);
     transition: all 0.3s ease;
   }
   
@@ -73,7 +73,7 @@ section {
   
   .tab-item:hover {
     opacity: 1;
-    background-color: rgba(250, 168, 91, 0.11);
+    background-color: rgb(225, 225, 225);
     border-color: rgba(218, 126, 51, 0.1);
   }
   
@@ -490,7 +490,7 @@ ul li .btn {
 .heading h1 {
     margin-top: 80px;
     margin-bottom: 30px;
-    color: var(--text);
+    color: var(--color-blue);
     margin-left: 50px;
     font-size: 40px;
 }

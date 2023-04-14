@@ -4,7 +4,7 @@
         <li class="nav-item">
             <a href="./user.php" class="nav-link">
                 <i class="fa-solid fa-check-to-slot"></i>
-                USER
+                USERS
             </a>
         </li>
         <li class="nav-item">
