@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/base.css">
 
 
-    <title>ALOHA Admin</title>
+    <title>USERS</title>
     <link rel="icon" href="./assets/img/logo/logo.png" type="image/x-icon" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -79,6 +79,7 @@
         </div>
     </section>
 
+    <script src="https://kit.fontawesome.com/c89546c2fd.js" crossorigin="anonymous"></script>
     <script src="./tab.slider.js"></script>
 </body>
 </html>
