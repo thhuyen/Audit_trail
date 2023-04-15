@@ -19,6 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/c89546c2fd.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <?php
@@ -33,8 +35,10 @@
                     <div class="line"></div>
                 </div>
             
-                    <!-- NOTICE-BELL -->
-               
+                    <!-- LOGOUT-ICON -->
+            <?php
+                include './logout.php'
+            ?>
             </div>
         </div>
 
