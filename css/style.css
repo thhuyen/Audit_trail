@@ -33,7 +33,9 @@ section {
     border-color: transparent transparent rgb(182, 182, 182) transparent;
     z-index: 1;
   }
-  
+  .nav-item {
+    color: white;
+  }
   /*-------------TAB SLIDER------------*/
   
   .tabs {
@@ -254,13 +256,13 @@ section {
     margin: 5px;
   }
   
-  .tab-pane .container .table-infor .btn-table:hover {
+  /* .tab-pane .container  {
     border-radius: 5px;
     border: transparent;
     background: #171a2b;
     color: white;
     cursor: pointer;
-  }
+  } */
   
   .del-btn {
     background: #FF1616;
@@ -391,10 +393,6 @@ section {
 
 li:hover .btn-quanly {
     color: #000 !important;
-}
-
-.nav-link {
-    padding: 0 !important;
 }
 
 ul li .btn {

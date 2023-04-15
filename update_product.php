@@ -1,6 +1,7 @@
 <?php
     include './connect.php';
 
+    $username = $_GET['username'];
     $id = $_POST['product-id_upd'];
     $name = $_POST['product-name_upd'];
     $price = $_POST['product-price_upd'];
@@ -38,9 +39,9 @@
 
             mysqli_query($conn, "UPDATE `products` SET `id`='$id',`product_name`='$name',`product_price`='$price',`product_description`='$des' WHERE id = '$id'");
             mysqli_query($conn, "INSERT INTO `logs`(`id`, `action`, `date`, `username`) 
-                                VALUES ('0','update {$mess} of product having id - {$id}','$date','huyen')");
+                                VALUES ('0','update {$mess} of product having id - {$id}','$date','{$username}')");
         }
     }
 
-    header("Location: ./products.php");    
+    header("Location: ./products.php?username={$username}");    
 ?>

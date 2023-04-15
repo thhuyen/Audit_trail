@@ -1,6 +1,7 @@
 <?php
     include './connect.php';
 
+    $username = $_GET['username'];
     $name = $_POST['product-name'];
     $price = $_POST['product-price'];
     $des = $_POST['product-des'];
@@ -14,7 +15,7 @@
                         VALUES ('$id','$name','$price','$des')");
 
     mysqli_query($conn, "INSERT INTO `logs`(`id`, `action`, `date`, `username`) 
-                                VALUES ('0','add product having id - {$id}','$date','huyen')");
+                                VALUES ('0','add product having id - {$id}','$date','{$username}')");
    
-    header("Location: ./products.php");    
+    header("Location: ./products.php?username={$username}");    
 ?>

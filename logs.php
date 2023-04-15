@@ -88,7 +88,7 @@
         <!-- update form -->
         <div>
             <div class='container add form' style="margin-top: 0;">
-                <form id="form-update-room" class='set' method="post" action="./update_log.php">
+                <form id="form-update-room" class='set' method="post" action="./update_log.php?username=<?= $_GET['username']?>">
                     <div class="room-container">
                         <div class="room-infor">
                             <label for="log_id" class="form-label">ID *</label>
@@ -116,7 +116,7 @@
     </div>    
     
     <!-- delete form -->
-    <form action="./del_log.php" method="POST">
+    <form action="./del_log.php?username=<?= $_GET['username']?>" method="POST">
         <div class="modal fade" id="delete-room" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -146,55 +146,79 @@
     <script>
         // event delete ask
         let log_id;
-        function openModalDelete(button) {
-            function find_pos(row, x) {
-                var updateTableCells = document.querySelector(".update-table").rows[row].cells; // lấy ra các cell của 1 row
-                var updateTableRows = document.querySelector(".update-table").rows; 
-                for (let i = 0; i< updateTableRows.length; i++) {
-                    if (updateTableRows[i] === x.parentElement.parentElement ) {
-                        return [updateTableCells[1].innerText, updateTableCells[0].innerText];
+        if (username === 'huyen' || username === 'diep') {
+            function openModalDelete(button) {
+                function find_pos(row, x) {
+                    var updateTableCells = document.querySelector(".update-table").rows[row].cells; // lấy ra các cell của 1 row
+                    var updateTableRows = document.querySelector(".update-table").rows; 
+                    for (let i = 0; i< updateTableRows.length; i++) {
+                        if (updateTableRows[i] === x.parentElement.parentElement ) {
+                            return [updateTableCells[1].innerText, updateTableCells[0].innerText];
+                        }
                     }
-                }
-                return false;
-            } 
-            stt = find_pos((button.parentElement).parentElement.rowIndex, button)[1];
-            log_id = find_pos((button.parentElement).parentElement.rowIndex, button)[0];
-            document.querySelector('.room-name-notice').innerText = stt;
-        }
-
-        // HÀM SET COOKIE HẾT HẠN TRONG N GIÂY
-        function createCookie(name, value, second) {
-            var date = new Date();
-            date.setTime(date.getTime()+(second*1000));
-            var expires = "; expires="+date.toGMTString();
-            document.cookie = name+"="+value+expires+"; path=/";
-        }
-        // event delete product
-        function DeleteRoom(button) {
-            createCookie("logID", log_id, 60);
-        }  
-
-        // event open form
-        function openUpdate(button) {
-            btnExitForm.style.display = "block";
-        updateRoomForm.style.display="block";
-        updateTab.classList.add('close');
-
-            function find_pos(row, x) {
-                var updateTableCells = document.querySelector(".update-table").rows[row].cells; // lấy ra các cell của 1 row
-                var updateTableRows = document.querySelector(".update-table").rows; 
-                for (let i = 0; i< updateTableRows.length; i++) {
-                    if (updateTableRows[i] === x.parentElement.parentElement ) {
-                        document.getElementById('log_id').value = updateTableCells[1].innerText.trim();
-                        document.getElementById('log_username').value = updateTableCells[2].innerText.trim();
-                        document.getElementById('log_action').value = updateTableCells[3].innerText.trim();
-                        
-                        break;
+                    return false;
+                } 
+                stt = find_pos((button.parentElement).parentElement.rowIndex, button)[1];
+                log_id = find_pos((button.parentElement).parentElement.rowIndex, button)[0];
+                document.querySelector('.room-name-notice').innerText = stt;
+            }
+    
+            // HÀM SET COOKIE HẾT HẠN TRONG N GIÂY
+            function createCookie(name, value, second) {
+                var date = new Date();
+                date.setTime(date.getTime()+(second*1000));
+                var expires = "; expires="+date.toGMTString();
+                document.cookie = name+"="+value+expires+"; path=/";
+            }
+            // event delete product
+            function DeleteRoom(button) {
+                createCookie("logID", log_id, 60);
+            }  
+    
+            // event open form
+            function openUpdate(button) {
+                btnExitForm.style.display = "block";
+            updateRoomForm.style.display="block";
+            updateTab.classList.add('close');
+    
+                function find_pos(row, x) {
+                    var updateTableCells = document.querySelector(".update-table").rows[row].cells; // lấy ra các cell của 1 row
+                    var updateTableRows = document.querySelector(".update-table").rows; 
+                    for (let i = 0; i< updateTableRows.length; i++) {
+                        if (updateTableRows[i] === x.parentElement.parentElement ) {
+                            document.getElementById('log_id').value = updateTableCells[1].innerText.trim();
+                            document.getElementById('log_username').value = updateTableCells[2].innerText.trim();
+                            document.getElementById('log_action').value = updateTableCells[3].innerText.trim();
+                            
+                            break;
+                        }
                     }
-                }
+                } 
+                find_pos((button.parentElement).parentElement.rowIndex, button);
             } 
-            find_pos((button.parentElement).parentElement.rowIndex, button);
-        } 
+        }
+        else {
+            document.querySelectorAll('.upd-btn').forEach(function(button) {
+                button.style.cursor = 'no-drop';
+            })
+            document.querySelectorAll('.upd-btn').forEach(function(button) {
+                button.style.opacity = '.5';
+            })
+            document.querySelectorAll('.del-btn').forEach(function(button) {
+                button.style.cursor = 'no-drop';
+                button.removeAttribute("data-bs-toggle");
+                button.removeAttribute("data-bs-target");
+            })
+            document.querySelectorAll('.del-btn').forEach(function(button) {
+                button.style.opacity = '.5';
+            })
+            function openUpdate(button) {
+                alert("You don't have permission to do this!")
+            }
+            function openModalDelete(button) {
+                alert("You don't have permission to do this!")
+            }
+        }
     </script>
 
    

@@ -58,7 +58,7 @@
         <!-- ADD -->
         <div class="tab-pane add active">
             <div class="container add">
-                <form id="form-add" action="./add_product.php" method="POST"> 
+                <form id="form-add" action="./add_product.php?username=<?= $_GET['username']?>" method="POST"> 
                     <div class="room-container">
                         <div class="room-infor">
                             <label for="product-name" class="form-label">PRODUCT NAME *</label>
@@ -126,7 +126,7 @@
         <!-- UPDATE FORM -->
         <div>
             <div class='container add form' style="margin-top: 0;">
-                <form id="form-update-room" class='set' method="post" action="./update_product.php">
+                <form id="form-update-room" class='set' method="post" action="./update_product.php?username=<?= $_GET['username']?>">
                     <div class="room-container">
                         <div class="room-infor">
                             <label for="product-id_upd" class="form-label">PRODUCT ID *</label>
@@ -159,7 +159,7 @@
 
    
     <!-- form xóa -->
-    <form action="./del_product.php" method="POST">
+    <form action="./del_product.php?username=<?= $_GET['username']?>" method="POST">
         <div class="modal fade" id="delete-room" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
