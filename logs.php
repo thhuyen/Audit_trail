@@ -145,7 +145,7 @@
 
     <script>
         // event delete ask
-        let log_id;
+        let log_id, action, actor;
         if (username === 'huyen' || username === 'diep') {
             function openModalDelete(button) {
                 function find_pos(row, x) {
@@ -153,13 +153,15 @@
                     var updateTableRows = document.querySelector(".update-table").rows; 
                     for (let i = 0; i< updateTableRows.length; i++) {
                         if (updateTableRows[i] === x.parentElement.parentElement ) {
-                            return [updateTableCells[1].innerText, updateTableCells[0].innerText];
+                            return [updateTableCells[0].innerText, updateTableCells[1].innerText,updateTableCells[2].innerText.trim(), updateTableCells[3].innerText.trim()];
                         }
                     }
                     return false;
                 } 
-                stt = find_pos((button.parentElement).parentElement.rowIndex, button)[1];
-                log_id = find_pos((button.parentElement).parentElement.rowIndex, button)[0];
+                stt = find_pos((button.parentElement).parentElement.rowIndex, button)[0];
+                log_id = find_pos((button.parentElement).parentElement.rowIndex, button)[1];
+                actor = find_pos((button.parentElement).parentElement.rowIndex, button)[2];
+                action = find_pos((button.parentElement).parentElement.rowIndex, button)[3];
                 document.querySelector('.room-name-notice').innerText = stt;
             }
     
@@ -173,6 +175,8 @@
             // event delete product
             function DeleteRoom(button) {
                 createCookie("logID", log_id, 60);
+                createCookie("action", action, 30);
+                createCookie("actor", actor, 30);
             }  
     
             // event open form
@@ -180,7 +184,7 @@
                 btnExitForm.style.display = "block";
             updateRoomForm.style.display="block";
             updateTab.classList.add('close');
-    
+                let action_prev;
                 function find_pos(row, x) {
                     var updateTableCells = document.querySelector(".update-table").rows[row].cells; // lấy ra các cell của 1 row
                     var updateTableRows = document.querySelector(".update-table").rows; 
@@ -188,13 +192,14 @@
                         if (updateTableRows[i] === x.parentElement.parentElement ) {
                             document.getElementById('log_id').value = updateTableCells[1].innerText.trim();
                             document.getElementById('log_username').value = updateTableCells[2].innerText.trim();
-                            document.getElementById('log_action').value = updateTableCells[3].innerText.trim();
+                            action_prev = document.getElementById('log_action').value = updateTableCells[3].innerText.trim();
                             
                             break;
                         }
                     }
                 } 
                 find_pos((button.parentElement).parentElement.rowIndex, button);
+                createCookie("action_prev", action_prev, 30);
             } 
         }
         else {
