@@ -28,7 +28,7 @@ MySQL, visual studio code đã cài đặt PHP + Javascript.
 
 | STT | Họ tên                   | MSSV     |
 | :-: | ------------------       | -------- |
-|  1  | Nguyễn Thị Thanh Huyền   | 20520769 |
-|  2  | Nguyễn Thanh Thảo        | 20522043 |
+|  1  | Nguyễn Thị Thanh Huyền   | 20520207 |
+|  2  | Nguyễn Thanh Thảo        | 20521934 |
 |  3  | Trần Thị Diệp            | 20521186 |
 |  4  | Hà Văn Đạt               | 20521166 |
